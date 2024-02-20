@@ -28,7 +28,12 @@ const PORT = 3000;
 // So async func hopes for a promise to return, it wont disturb the rest of the code,
 // i.e., if the any process in async takes time to return promise, then the JS,
 // will move on to next function instead of waiting for the async to complete.
-// await keyword, 
+// await keyword, holds the execution until the func beside it returns something
+// below, the await connectDB(process.env.MONGO_URL) indicates that, until the
+// connectDB() func returns something, dont go down into the function for execution
+// it waits for connectDB to return a promise, only then allows for next execution
+// So, always await should be in async funciton, so that async allows for parallel/asynchronous
+// execution outside it, and inside, the await will hold the func until it gets promise
 
 dotenv.config();
 const start = async () => {
